@@ -1,5 +1,5 @@
 ---
-nav-include: 1
+nav_include: 1
 title: Code Notebook
 notebook: Version 168 Count.ipynb
 ---
