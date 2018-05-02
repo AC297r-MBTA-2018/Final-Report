@@ -1,6 +1,6 @@
 theme: jekyll-theme-primer
-title: Support Vector Olives
-description: Keeping Italian Olives Pure!
+title: MBTA
+description: Understanding rider behavior with unsupervised learning methods
 baseurl:
 markdown: kramdown
 kramdown:
