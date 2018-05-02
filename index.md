@@ -1,15 +1,18 @@
 ---
-title: The Case of the Italian Olives
+title: MBTA Rider Segmentation
 ---
 
-This is the home page
+## Contents
+{:.no_toc}
+*  
+{: toc}
 
-## Lets have fun
+## Team
+Harvard 2018 Spring AC297r Capstone Project: Chia Chi (Michelle) Ho, Yijun Shen, Jiawen Tong, Anthony Hou
 
->here is a quote
+## Problem Statement & Motivation 
 
-Here is *emph* and **bold**.
+Motivation and Problem Statement Test. Therefore, the specific goals are:
 
-Here is some inline math $\alpha = \frac{\beta}{\gamma}$ and, of-course, E rules:
-
-$$ G_{\mu\nu} + \Lambda g_{\mu\nu}  = 8 \pi T_{\mu\nu} . $$
+- a
+- b
