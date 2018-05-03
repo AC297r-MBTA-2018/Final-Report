@@ -49,9 +49,11 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end mr-4" id="MBTAnavbar">
                   <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active">
+                      <li class="nav-item">
                           <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/">Dashboard</a>
                       </li>
+                      <li class="nav-item active">
+                          <a class="nav-link" href="#">Report</a>
                       <li class="nav-item">
                           <a class="nav-link" href="#">Documentation</a>
                       </li>
@@ -61,8 +63,8 @@
                   </ul>
               </div>
           </nav>
-    <div class="container-lg px-3 my-5 markdown-body">
-      <nav class="group">
+    <div class="markdown-body">
+      <nav class="group second-nav">
         {% if site.title and site.title != page.title %}
            <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
         {% endif %}
