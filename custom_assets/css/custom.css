@@ -33,7 +33,7 @@
     max-width: -webkit-fill-available;
 }
 
-.second-nav a{
+.page-nav a{
   position: relative;
   display: inline-block;
   width: auto;
@@ -51,7 +51,7 @@
   -webkit-border-radius: 5px;
 }
 
-.second-nav a.active{
+.page-nav a.active{
   color: #ffffff;
   border: 2px solid #2879d0;
   background-color: #2879d0;

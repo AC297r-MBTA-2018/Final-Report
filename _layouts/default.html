@@ -1,101 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% seo %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% seo %}
     <link href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet">
     <title>{{page.title}}</title>
     <!-- mathjax config similar to math.stackexchange -->
     <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [ ['$', '$'] ],
-        displayMath: [ ['$$', '$$']],
-        processEscapes: true,
-        displayAlign: 'center',
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+        MathJax.Hub.Config({ jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ['$', '$'] ], displayMath: [ ['$$', '$$']], processEscapes: true, displayAlign: 'center', skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] } });
     </script>
     <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
-<!-- css and library imports -->
-<link rel="stylesheet" href="./custom_assets/css/tether.min.css">
-<link rel="stylesheet" href="./custom_assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="./custom_assets/css/bootstrap-grid.min.css">
-<link rel="stylesheet" href="./custom_assets/css/bootstrap-reboot.min.css">
-<link rel="stylesheet" href="./custom_assets/css/keen-dashboards.css">
-<link rel="stylesheet" href="./custom_assets/css/font-awesome.min.css">
+    <!-- css and library imports -->
+    <link rel="stylesheet" href="./custom_assets/css/tether.min.css">
+    <link rel="stylesheet" href="./custom_assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./custom_assets/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./custom_assets/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./custom_assets/css/keen-dashboards.css">
+    <link rel="stylesheet" href="./custom_assets/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="./custom_assets/css/custom.css">
+    <link rel="stylesheet" href="./custom_assets/css/custom.css">
 
-<script src="./custom_assets/jslib/tether.min.js"></script>
-<script type="text/javascript" src="./custom_assets/jslib/jquery-3.3.1.min.js"></script>
-  </head>
-  <body class="application">
+    <script src="./custom_assets/jslib/tether.min.js"></script>
+    <script type="text/javascript" src="./custom_assets/jslib/jquery-3.3.1.min.js"></script>
+</head>
 
-      <!-- Navigation Bar -->
-          <nav class="navbar navbar-toggleable-md navbar-light bg-light">
-              <a href="#" class="navbar-brand ml-4">
-                  <!-- icon downloaded from http://www.brandsoftheworld.com/logo/mbta-0 -->
-                  <!-- converted to .svg using https://cloudconvert.com/eps-to-svg -->
-                  <img src="./custom_assets/img/MBTA_full.svg" width="200" height="50" alt="MBTA logo">
-              </a>
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#MBTAnavbar" aria-controls="MBTAnavbar" aria-expanded="false" aria-label="Toggle navigation">
+<body class="application">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-toggleable-md navbar-light bg-light">
+        <a href="#" class="navbar-brand ml-4">
+            <!-- icon downloaded from http://www.brandsoftheworld.com/logo/mbta-0 -->
+            <!-- converted to .svg using https://cloudconvert.com/eps-to-svg -->
+            <img src="./custom_assets/img/MBTA_full.svg" width="200" height="50" alt="MBTA logo">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#MBTAnavbar" aria-controls="MBTAnavbar" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse justify-content-end mr-4" id="MBTAnavbar">
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/">Dashboard</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href="#">Report</a>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Documentation</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">About</a>
-                      </li>
-                  </ul>
-              </div>
-          </nav>
-    <div class="markdown-body">
-      <nav class="group second-nav">
-        {% if site.title and site.title != page.title %}
-           <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
-        {% endif %}
-        {% assign navigation_pages = site.html_pages | sort: 'nav_include' %}
-        {% for node in navigation_pages %}
-                {% if node.nav_include %}
-                    {% if page.url == node.url %}
-                      &nbsp;&nbsp;<a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:#b4d5fe">{{node.title}}</a>
-                    {% else %}
-                      &nbsp;&nbsp;<a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a>
-                    {% endif %}
-                {% endif %}
-        {% endfor %}
+        <div class="collapse navbar-collapse justify-content-end mr-4" id="MBTAnavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/">Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Report</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="second-nav">
+        <nav class="group page-nav">
+            {% if site.title and site.title != page.title %}
+            <a href="{{ " / " | absolute_url }}">{{ site.title }}</a> {% endif %} {% assign navigation_pages = site.html_pages | sort: 'nav_include' %} {% for node in navigation_pages %} {% if node.nav_include %} {% if page.url == node.url %} &nbsp;&nbsp;
+            <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:#b4d5fe">{{node.title}}</a> {% else %} &nbsp;&nbsp;
+            <a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a> {% endif %} {% endif %} {% endfor %}
         </nav>
+    </div>
 
-      <h1>{{page.title}}</h1>
-
-      {{ content }}
-
-      {% if site.github.private != true and site.github.license %}
-      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-        This site is open source. {% github_edit_link "Improve this page" %}.
-      </div>
-      {% endif %}
+    <div class="markdown-body">
+        <h1>{{page.title}}</h1> {{ content }} {% if site.github.private != true and site.github.license %}
+        <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+            This site is open source. {% github_edit_link "Improve this page" %}.
+        </div>
+        {% endif %}
     </div>
     <script src="./custom_assets/jslib/bootstrap.min.js"></script>
     <script src="./custom_assets/jslib/underscore-min.js"></script>
     <script src="./custom_assets/jslib/keen.min.js"></script>
     <script src="./custom_assets/jslib/anchor.min.js"></script>
-    <!-- <script src="{{ "assets/javascript/anchor-js/anchor.min.js" | relative_url }}"></script> -->
-    <script>anchors.add();</script>
+    <script>
+        anchors.add();
+    </script>
 
-  </body>
+</body>
+
 </html>
