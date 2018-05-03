@@ -56,21 +56,15 @@
     </nav>
 <div class="markdown-body">
     <div class="second-nav">
-        <!-- <nav class="group page-nav">
-            {% if site.title and site.title != page.title %}
-            <a href="{{ " / " | absolute_url }}">{{ site.title }}</a> {% endif %} {% assign navigation_pages = site.html_pages | sort: 'nav_include' %} {% for node in navigation_pages %} {% if node.nav_include %} {% if page.url == node.url %} &nbsp;&nbsp;
-            <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:white">{{node.title}}</a> {% else %} &nbsp;&nbsp;
-            <a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a> {% endif %} {% endif %} {% endfor %}
-        </nav> -->
-    </div>
-
-    <div class="markdown-content">
         <nav class="group page-nav">
             {% if site.title and site.title != page.title %}
             <a href="{{ " / " | absolute_url }}">{{ site.title }}</a> {% endif %} {% assign navigation_pages = site.html_pages | sort: 'nav_include' %} {% for node in navigation_pages %} {% if node.nav_include %} {% if page.url == node.url %} &nbsp;&nbsp;
             <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:white">{{node.title}}</a> {% else %} &nbsp;&nbsp;
             <a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a> {% endif %} {% endif %} {% endfor %}
         </nav>
+    </div>
+
+    <div class="markdown-content">
         <h1>{{page.title}}</h1> {{ content }} {% if site.github.private != true and site.github.license %}
         <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
             This site is open source. {% github_edit_link "Improve this page" %}.
