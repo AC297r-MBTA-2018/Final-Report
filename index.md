@@ -10,9 +10,22 @@ title: MBTA Rider Segmentation
 ## Team
 Harvard 2018 Spring AC297r Capstone Project: Chia Chi (Michelle) Ho, Yijun Shen, Jiawen Tong, Anthony Hou
 
-## Problem Statement & Motivation 
+## Motivation & Problem Statement  
 
 Motivation and Problem Statement Test. Therefore, the specific goals are:
 
-- a
-- b
+## Project Deliverables
+
+## Data Description
+
+## Literature Review
+
+## Modeling Approach
+
+## Sample Results
+- Compare hierarchical vs. non-hierarchical
+- Compare lda vs. kmeans
+
+## Conclusions
+
+## Future Work
