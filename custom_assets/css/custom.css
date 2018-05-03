@@ -29,13 +29,13 @@
     line-height: 1.5;
     word-wrap: break-word;
     background-color: white;
-    padding: 50px;
+    padding: 20px 10px;
     margin-top: 50px;
     max-width: -webkit-fill-available;
 }
 .second-nav {
     background-color: white;
-    padding: 10px 20px;
+    padding: 50px;
     max-width: -webkit-fill-available;
 }
 .page-nav a{
@@ -43,6 +43,7 @@
   display: inline-block;
   width: auto;
   height: auto;
+  padding: 10px 15px;
   margin-top: 15px;
   font-size: 16px;
   line-height: 1.3;
