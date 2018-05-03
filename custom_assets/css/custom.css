@@ -57,6 +57,6 @@
 
 .page-nav a.active{
   color: #ffffff;
-  border: 2px solid #2879d0;
-  background-color: #2879d0;
+  border: 1px solid #165c96;
+  background-color: #165c96;
 }
