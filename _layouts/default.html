@@ -46,7 +46,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Final-Report/">Report</a>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/documentation.html">Documentation</a>
+                        <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Code-Documentation/">Documentation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/about.html">About</a>
@@ -59,16 +59,16 @@
         <nav class="group page-nav">
             {% if site.title and site.title != page.title %}
                 <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
-            {% endif %} 
+            {% endif %}
             {% assign navigation_pages = site.html_pages | sort: 'nav_include' %}
-            {% for node in navigation_pages %} 
-                {% if node.nav_include %} 
-                    {% if page.url == node.url %} 
-                        &nbsp;&nbsp; <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:white">{{node.title}}</a> 
-                    {% else %} 
+            {% for node in navigation_pages %}
+                {% if node.nav_include %}
+                    {% if page.url == node.url %}
+                        &nbsp;&nbsp; <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:white">{{node.title}}</a>
+                    {% else %}
                         &nbsp;&nbsp;<a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a>
-                    {% endif %} 
-                {% endif %} 
+                    {% endif %}
+                {% endif %}
             {% endfor %}
         </nav>
     </div>
