@@ -70,6 +70,7 @@ SAY STH ABOUT WHAT WE USED AND WHY WE DIDN'T USE ODX DESTINATION
 
 ## Modeling Approach Overview
 Our modeling approach is summarized in Figure 3.
+
 | <img src="img/deliverable_structure.png" width="1000">| 
 |:--:| 
 | *Figure 3: Deliverable Structure/Modeling Approach Overview* |
