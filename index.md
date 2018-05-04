@@ -50,9 +50,11 @@ Available data:
 - GoogleMap Geoencoding API, which maps longitude and latitude coordinates to zip codes 
 - US Census data containing demographics information by zip codes
 
+SAY STH ABOUT WHAT WE USED AND WHY WE DIDN'T USE ODX DESTINATION
 
-
-
+| <img src="img/data_structure.png" width="1000">| 
+|:--:| 
+| *Figure 2: Data Structure* |
 
 ## Literature Review
 
@@ -66,7 +68,11 @@ Available data:
 
 
 
-## Modeling Approach
+## Modeling Approach Overview
+Our modeling approach is summarized in Figure 3.
+| <img src="img/deliverable_structure.png" width="1000">| 
+|:--:| 
+| *Figure 3: Deliverable Structure/Modeling Approach Overview* |
 
 ## Sample Results
 - Compare hierarchical vs. non-hierarchical
