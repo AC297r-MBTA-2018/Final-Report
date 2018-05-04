@@ -71,7 +71,7 @@ SAY STH ABOUT WHAT WE USED AND WHY WE DIDN'T USE ODX DESTINATION
 ## Modeling Approach Overview
 Our overall modeling approach is summarized in Figure 3.
 
-| <img src="img/deliverable_structure.png" width="1000">| 
+| <img src="img/deliverable_structure.png" width="1600">| 
 |:--:| 
 | ***Figure 3: Modeling Approach Overview.** The approach is presented in the context of the overall structure of our project deliverables. Elements belonging to the Python segmentation pacakge and visualization exploration tool are colored in dark blue and light blue-green, respectively.* |
 
