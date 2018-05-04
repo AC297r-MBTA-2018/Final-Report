@@ -25,10 +25,13 @@ Our project deliverables are:
 The deliverables are summarized in Figure 1
 
 
-| ![Project Deliverables](img/project_deliverables.png)| 
+<!-- | ![Project Deliverables](img/project_deliverables.png)| 
+|:--:| 
+| *Figure 1: Project Deliverables* | -->
+
+| <img src="img/project_deliverables.png" width="300">| 
 |:--:| 
 | *Figure 1: Project Deliverables* |
-
 
 
 ## Data Description
