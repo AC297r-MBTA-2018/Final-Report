@@ -5,7 +5,7 @@ title: Feature Extraction
 
 ## Contents
 {:.no_toc}
-*
+*  
 {: toc}
 
 ## Data Preprocessing
