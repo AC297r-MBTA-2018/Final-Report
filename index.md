@@ -22,14 +22,32 @@ Our project deliverables are:
 - A reusable Python segmentation package that clusters riders and infers rider group characteristics.
 - A web-based visualization exploration tool intended to facilitate the discovery of business and ridership insights.
 
-The deliverables are summarized in Figure 1
-
 | <img src="img/project_deliverables.png" width="1000">| 
 |:--:| 
 | *Figure 1: Project Deliverables* |
 
+The specific goals of each project deliverables are 
+- For the Python segmentation package:
+    - Develop a method to extract rider-level pattern-of-use features from transaction data
+    - Develop a method to cluster riders using unsupervised learning algorithms based on extracted features
+    - Develop a method to profiles rider clusters using demographic information
+    - Develop a generative model that automatically generates simple reports describing rider clusters
+    - Implement simple static visualization functions to display various rider segment characteristics
+
+- For the visualization exploration tool:
+    - Implement a fully dynamic web-based application with a Flask backend to display interactive D3 visualizations for data exploration (App with full functionality, not deployed to the web)
+    - Implement a static version of the full app that displays the same interactive D3 visualizations without a Flask backend (App with limited functionality, deployed using Github pages)
 
 ## Data Description
+Available data: 
+- MBTA Automated Fare Collection (AFC) data containing transaction-level data
+- MBTA Fare product data containing fare product definitions
+- MIT/MBTA ODX data containing transaction-level origin/destination inference
+- MBTA Stops data containing information about each station/stop
+- GoogleMap Geoencoding API, which maps longitude and latitude coordinates to zip codes 
+- US Census data containing demographics information by zip codes
+
+
 
 
 
