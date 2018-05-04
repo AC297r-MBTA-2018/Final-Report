@@ -105,9 +105,14 @@ Figure 5 shows the comparison of cluster temporal patterns found using different
 
 | <img src="img/cluster_temporal_patterns.png" width="2000">|
 |:--:| 
-| ***Figure 5: Cluster Temporal Patterns Comparison.** A. Temporal patterns found using the hierarchical pipeline and the LDA algorithm; B. Temporal patterns found using the non-hierarchical pipeline and the LDA algorithm; C. Temporal patterns found using the hierarchical pipeline and the K-means algorithm; D. Temporal patterns found usimg the non-hierarchical pipeline and the K-means algorithm.* |
+| ***Figure 5: Cluster Temporal Patterns Comparison.** Temporal patterns found using A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Comparing Cluster Geographical Patterns
+
+| <img src="img/selected_geo_patterns.png" width="2000">|
+|:--:| 
+| ***Figure 6: Selected Cluster Geographical Patterns Comparison.** Geographical patterns found using A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+
 ### Comparing Cluster Ticket Purchasing Patterns
 ### Comparing Inferred Cluster Demographics
 ### Sample Report
