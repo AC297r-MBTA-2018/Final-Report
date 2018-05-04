@@ -18,7 +18,7 @@ The Massachusetts Bay Transportation Authority (MBTA) is the largest public tran
 
 ## Project Deliverables
 
-Our project deliverables are:
+**Our project deliverables are:**
 
 - A reusable Python segmentation package that clusters riders and infers rider group characteristics.
 - A web-based visualization exploration tool intended to facilitate the discovery of business and ridership insights.
@@ -27,34 +27,50 @@ Our project deliverables are:
 |:--:| 
 | ***Figure 1: Project Deliverables*** |
 
-The specific goals of each project deliverables are 
-- For the Python segmentation package:
-    - Develop a method to extract rider-level pattern-of-use features from transaction data
-    - Develop a method to cluster riders using unsupervised learning algorithms based on extracted features
-    - Develop a method to profiles rider clusters using demographic information
+**The specific goals of each project deliverables are**:
+- For the Python segmentation package - 
+    - Develop a method to extract rider-level pattern-of-use features (temporal, geographical and ticket purchasing) from transaction data based on user-specified length of duration and starting month
+    - Develop a method to cluster riders using unsupervised learning algorithms based on extracted features and user-specified weights on temporal patterns
+    - Develop a method to profile rider clusters using demographics information
     - Develop a generative model that automatically generates simple reports describing rider clusters
     - Implement simple static visualization functions to display various rider segment characteristics
 
-- For the visualization exploration tool:
+- For the visualization exploration tool - 
     - Implement a fully dynamic web-based application with a Flask backend to display interactive D3 visualizations for data exploration (App with full functionality, not deployed to the web)
     - Implement a static version of the full app that displays the same interactive D3 visualizations without a Flask backend (App with limited functionality, deployed using Github pages)
 
+Note: In addition to the code base, we are delivering pre-ran monthly clustering results for Dec 2016 to Nov 2017 with equal weighting on temporal, geographical and ticket purchasing patterns. This set of cached results are the data available for display on the Github version of our dashboard. 
+
+**Our Github Organization:**
+
+Source code can be found on our Github organization (https://github.com/AC297r-MBTA-2018). It contains 4 repositories:
+
+- ***Rider-Segmentation-Full-App*** - This is the code base for both the Python segmentation package and the app with full functionality (i.e. based on user input, the app is able to send clustering request to the Flask backend on a new data set or user-specified weights/duration that has not been cached. *Disclaimer: The full input source is not available on Github for security reasons, and each new clustering request takes at least several hours*.)  
+- ***Dashboard*** - This is the static version of the full app that has limited functinality (The app is only able to display pre-ran monthly clustering results for Dec 2016 to Nov 2017 with equal weighting on temporal, geographical and ticket purchasing pattern.) The app is deployed as a Github page (https://ac297r-mbta-2018.github.io/Dashboard/).
+- ***Final-Report*** - This repository hosts the final report which is deployed as a Github page (https://ac297r-mbta-2018.github.io/Final-Report/).
+- ***Code-Documentation*** - This repository hosts the code documentation which is deployed as a Github page (https://ac297r-mbta-2018.github.io/Code-Documentation/).
+
+Note: The limtied Dashboard, Final Report and Code Documentation are linked via a navigation bar on respective Github pages.
+
 ## Data Description
 
-Available data: 
+Available data sources: 
 
-- MBTA Automated Fare Collection (AFC) data containing transaction-level data
-- MBTA Fare product data containing fare product definitions
-- MIT/MBTA ODX data containing transaction-level origin/destination inference
-- MBTA Stops data containing information about each station/stop
-- GoogleMap Geoencoding API, which maps longitude and latitude coordinates to zip codes 
-- US Census data containing demographics information by zip codes
+- **MBTA Automated Fare Collection (AFC)** data containing transaction-level data from November 2016 to November 2017
+- **MBTA Fare product** data containing fare product definitions
+- **MIT/MBTA ODX** data containing transaction-level origin/destination inference from November 2016 to November 2017
+- **MBTA Stops** data containing information about each station/stop
+- **GoogleMap Geoencoding API**, which maps longitude and latitude coordinates to zip codes 
+- **US Census** data containing demographics information by zip codes
+- **MBTA sales** data containing sales channel and card affiliations (We did not use this because it was not hashed the same way as other data sources, so we could not the match records.)
 
-SAY STH ABOUT WHAT WE USED AND WHY WE DIDN'T USE ODX DESTINATION
+
+The features we used and how we merged different data soruces are summarized in Figure 2. 
 
 | <img src="img/data_structure.png" width="1000">| 
 |:--:| 
 | ***Figure 2: Data Structure*** |
+
 
 ## Literature Review
 
@@ -69,6 +85,7 @@ SAY STH ABOUT WHAT WE USED AND WHY WE DIDN'T USE ODX DESTINATION
 
 
 ## Modeling Approach Overview
+
 Our overall modeling approach is summarized in Figure 3.
 
 | <img src="img/deliverable_structure.png" width="2000">| 
@@ -76,8 +93,24 @@ Our overall modeling approach is summarized in Figure 3.
 | ***Figure 3: Modeling Approach Overview.** The approach is presented in the context of the overall structure of our project deliverables. Elements belonging to the Python segmentation pacakge and visualization exploration tool are colored in dark blue and light blue-green, respectively.* |
 
 ## Sample Results
-- Compare hierarchical vs. non-hierarchical
-- Compare lda vs. kmeans
+
+Since there are too many combinations of month/pipeline/algorithm, we only present the results for Oct
+2017. Please see our dashboard (https://ac297r-mbta-2018.github.io/Dashboard/) to explore more results.
+
+### Comparing Cluster Statistics
+
+### Comparing Cluster Temporal Patterns
+
+Figure 5 shows the comparison of cluster temporal patterns found using different methods. All methods found distinct temporal patterns across different clusters. In general, the interpretations of these clusters are similar (e.g. weekend rider vs. commuters vs. random riders), but the hierarchical pipeline implementation found more subtle differences between clusters compared to the non-hierarchical pipeline. 
+
+| <img src="img/cluster_temporal_patterns.png" width="2000">|
+|:--:| 
+| ***Figure 5: Cluster Temporal Patterns Comparison.** A. Temporal patterns found using the hierarchical pipeline and the LDA algorithm; B. Temporal patterns found using the non-hierarchical pipeline and the LDA algorithm; C. Temporal patterns found using the hierarchical pipeline and the K-means algorithm; D. Temporal patterns found usimg the non-hierarchical pipeline and the K-means algorithm.* |
+
+### Comparing Cluster Geographical Patterns
+### Comparing Cluster Ticket Purchasing Patterns
+### Comparing Inferred Cluster Demographics
+### Sample Report
 
 ## Conclusions
 
