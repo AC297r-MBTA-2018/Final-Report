@@ -101,7 +101,7 @@ Since there are too many combinations of month/pipeline/algorithm, we only prese
 
 | <img src="img/cluster_stats.png" width="2000">|
 |:--:| 
-| ***Figure 4: Simple Cluster Statistics.** Number of riders and average number of trips of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+| ***Figure 4: Simple Cluster Statistics Comparison.** Number of riders and average number of trips of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Comparing Cluster Temporal Patterns
 
@@ -118,11 +118,17 @@ Figure 5 shows the comparison of cluster temporal patterns found using different
 | ***Figure 6: Selected Cluster Geographical Patterns Comparison.** Geographical patterns of clusters found using  - A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Comparing Cluster Ticket Purchasing Patterns
+
 | <img src="img/cluster_ticket_purchase_patterns.png" width="2000">|
 |:--:| 
 | ***Figure 7: Cluster Ticket Purchasing Patterns Comparison.** Ticket purchasing patterns of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Comparing Inferred Cluster Demographics
+
+| <img src="img/cluster_demographics.png" width="2000">|
+|:--:| 
+| ***Figure 8: Inferred Cluster Demographics Comparison.** Inferred demographics distributions of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+
 ### Sample Report
 
 ## Conclusions
