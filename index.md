@@ -17,6 +17,7 @@ The Massachusetts Bay Transportation Authority (MBTA) is the largest public tran
 
 
 ## Project Deliverables
+
 Our project deliverables are:
 
 - A reusable Python segmentation package that clusters riders and infers rider group characteristics.
@@ -39,7 +40,9 @@ The specific goals of each project deliverables are
     - Implement a static version of the full app that displays the same interactive D3 visualizations without a Flask backend (App with limited functionality, deployed using Github pages)
 
 ## Data Description
+
 Available data: 
+
 - MBTA Automated Fare Collection (AFC) data containing transaction-level data
 - MBTA Fare product data containing fare product definitions
 - MIT/MBTA ODX data containing transaction-level origin/destination inference
@@ -52,6 +55,16 @@ Available data:
 
 
 ## Literature Review
+
+1. Case Study in France: (*Mahrsi et al. (2014). Understanding Passenger Patterns in Public Transit Through Smart Card and Socioeconomic Data. UrbComp.*)
+    
+    In this paper, the authors presented an approach to mine passenger temporal behaviors in order to extract interpretable rider clusters. Briefly, each rider is represented as a vector of 168 features, where each feature is the number of trips the passenger took in a certain hour of a cerain day of week (24 hours/day x 7 days a week = 168 hours/week). Using a mixture of unigram model where the number of cluster K estimated by an EM algorithm, they obtained a set of 16 temporal clusters, each describing a temporal mobility pattern. Such patterns include typical home-to-work commuter pattern, different morning peak times, and different travel behaviors on weekends. To infer cluster socioeconomic characteristics, the authors used Hidden Random Markov Field and the inferred residential stations of each passenger to extract socioeconomic clusters. Based on this socioeconomic clustering of the residential neighborhoods, the authors found that the temporal clusters also differed in their inferred socioeconomic distribution.
+
+2. Case Study in London: (*Langlois et al. (2015). Inferring patterns in the multi-week activity sequences of public transport users. Transportation Research Part C.*）
+
+    In this study, the authors investigate passenger heterogeneity based on a longitudinal representation of each user’s multi-week activity sequence derived from smart card data. Then they identified clusters of users with similar activity sequence structure. The application reveals 11 clusters, each characterized by a distinct sequence structure. Combined with demographic attributes including passenger age, occupation, household composition and income, and vehicle ownership from a small sample of users, the analysis reveals that significant connections exist between the demographic attributes of users and activity patterns identified exclusively from fare transactions.
+
+
 
 ## Modeling Approach
 
