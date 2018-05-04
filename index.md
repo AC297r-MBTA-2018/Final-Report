@@ -99,21 +99,29 @@ Since there are too many combinations of month/pipeline/algorithm, we only prese
 
 ### Comparing Cluster Statistics
 
+| <img src="img/cluster_stats.png" width="2000">|
+|:--:| 
+| ***Figure 4: Simple Cluster Statistics.** Number of riders and average number of trips of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+
 ### Comparing Cluster Temporal Patterns
 
 Figure 5 shows the comparison of cluster temporal patterns found using different methods. All methods found distinct temporal patterns across different clusters. In general, the interpretations of these clusters are similar (e.g. weekend rider vs. commuters vs. random riders), but the hierarchical pipeline implementation found more subtle differences between clusters compared to the non-hierarchical pipeline. 
 
 | <img src="img/cluster_temporal_patterns.png" width="2000">|
 |:--:| 
-| ***Figure 5: Cluster Temporal Patterns Comparison.** Temporal patterns found using A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+| ***Figure 5: Cluster Temporal Patterns Comparison.** Temporal patterns of clusters found using - A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Comparing Cluster Geographical Patterns
 
 | <img src="img/selected_geo_patterns.png" width="2000">|
 |:--:| 
-| ***Figure 6: Selected Cluster Geographical Patterns Comparison.** Geographical patterns found using A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+| ***Figure 6: Selected Cluster Geographical Patterns Comparison.** Geographical patterns of clusters found using  - A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Comparing Cluster Ticket Purchasing Patterns
+| <img src="img/cluster_ticket_purchase_patterns.png" width="2000">|
+|:--:| 
+| ***Figure 7: Cluster Ticket Purchasing Patterns Comparison.** Ticket purchasing patterns of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
+
 ### Comparing Inferred Cluster Demographics
 ### Sample Report
 
