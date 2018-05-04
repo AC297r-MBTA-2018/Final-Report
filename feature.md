@@ -63,4 +63,4 @@ Grouping transaction records by riderID, we counted the number of trips of each 
 
 ### Ticket Purchasing Pattern
 
-Grouping transaction records by riderID, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with the riderID. This gives a total of 3 numeric features that can represent each rider's ticket-purchasing habits.
+Grouping transaction records by riderID, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with the riderID. This gives a total of 25 numeric features that can represent each rider's ticket-purchasing habits.
