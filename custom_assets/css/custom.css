@@ -60,3 +60,9 @@
   border: 1px solid #165c96;
   background-color: #165c96;
 }
+
+/* markdown content  */
+.markdown-content p{
+    padding: 5px 50px;
+    text-align: justify !important;
+}
