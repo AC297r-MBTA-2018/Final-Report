@@ -134,13 +134,21 @@ Sample of automatically generated reports for clusters found using the **Hierarc
 
 - For Cluster 1
 
-    > The predicted type of rider for cluster 101 is weekend riders. There are 58597 riders in the cluster, taking on average 9.89 trips. These riders take most trips during 23:00-24:00 and 22:00-23:00 on weekdays, and during 12:00-13:00 on weekends. The most frequent trip origin is in zipcode 02115.
+    > The predicted type of rider for this cluster is weekend riders. There are 58597 riders in the cluster, taking 9.89 trips on average. The cluster overall shows most traffic during 18:00-19:00 and 17:00-18:00 on weekdays, and during 17:00-18:00 on weekends. The most frequent trip origin is in zipcode 02115.
 
 - For Cluster 4
 
-    > The predicted type of rider for cluster 200 is less flexible commuters with normal commute hours. There are 123792 riders in the cluster, taking on average 42.78 trips. These riders take most trips during 8:00-9:00 and 17:00-18:00 on weekdays, and during 0:00-1:00 on weekends. The most frequent trip origin is in zipcode 02110.
+    > The predicted type of rider for this cluster is less flexible commuters with normal commute hours. There are 123792 riders in the cluster, taking 42.78 trips on average. The cluster overall shows most traffic during 7:00-8:00 and 8:00-9:00 on weekdays, and during 15:00-16:00 on weekends. The most frequent trip origin is in zipcode 02110.
 
-Sample of automatically generated reports for clusters found using the **Hierarchical** pipeline and the **K-means** algorithm:
+Sample of automatically generated reports for clusters found using the **Non-Hierarchical** pipeline and the **K-means** algorithm:
+
+- For Cluster 2
+
+    > The predicted type of rider for this cluster is weekend riders who also ride over weekdays. There are 2176 riders in the cluster, taking 7.3 trips on average. The cluster overall shows most traffic during 16:00-17:00 and 17:00-18:00 on weekdays, and during 18:00-19:00 on weekends. The most frequent trip origin is in zipcode 02110.
+
+- For Cluster 3
+
+    > The predicted type of rider for this cluster is more flexible commuters with normal commute hours. There are 84953 riders in the cluster, taking 35.94 trips on average. The cluster overall shows most traffic during 8:00-9:00 and 17:00-18:00 on weekdays, and during 15:00-16:00 on weekends. The most frequent trip origin is in zipcode 02110.
 
 ## Conclusions
 
