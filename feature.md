@@ -80,7 +80,13 @@ One of the key interpretations we would like to make is whether a rider is flexi
 | ***Figure 5: Schematics Comparing Less to More Flexible Rider Temporal Distribution*** A. A less flexible rider would have higher and more concentrated peaks. B. A more flexible rider would have lower and more spread out peaks.|
 
 #### Feature Set 4: Most Frequent Trip Hours
+It makes intuitive sense to cluster riders who ride at similar times. Therefore, we extracted the hours during which each rider took the most trips. We chose to extract the top 2 most frequent trip hours for weekdays and the top 1 for weekends. The idea is that we would want to compare commute times during weekdays for commuters and peak time for random/weekend riders during weekends. In practice, this is simply the corresponding column index (hour) of the maxes of Weekday Hourly vs. Weekend Hourly patterns. 
 
+An example of the top 2 most frequent trip hours during weekdays is shown in Figure 6.
+
+| <img src="img/top_freq_hr_example.png" width="1000">|
+|:--:|
+| ***Figure 6: Example of Extracting the Top 2 Most Frequent Trip Hours During Weekdays for One Rider*** |
 
 ### Geographical Patterns
 
@@ -98,13 +104,13 @@ Two combinations of features sets were made for comparison.
 
     | <img src="img/feature168_details.png" width="1000">|
     |:--:|
-    | ***Figure 6: Feature Details for Feature Collection 1*** |
+    | ***Figure 7: Feature Details for Feature Collection 1*** |
 
 - **Feature collection 2**: Feature sets 1b (Weekday Hourly vs. Weekend Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Most Frequent Trip Hours), 5 (Geographical Patterns by Zip Code), and 6 (Ticket Purchasing Pattern). *This collection has a total of 190 features*.
 
     | <img src="img/feature48_details.png" width="1000">|
     |:--:|
-    | ***Figure 7: Feature Details for Feature Collection 2*** |
+    | ***Figure 8: Feature Details for Feature Collection 2*** |
 
 
 ## Additional Dimension Reduction Approaches
@@ -112,15 +118,15 @@ Two combinations of features sets were made for comparison.
 
 Principal component analysis (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components ([Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis)). More information can also be found in [Sklearn documentation](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html).
 
-We experimented with PCA transformation as an additional dimension reduction approach. However, as Figure 8 below shows, the almost linear dependency between variance expalined and number of components suggest that PCA is not an effective method for dimension reduction in the context of our problem.
+We experimented with PCA transformation as an additional dimension reduction approach. However, as Figure 9 below shows, the almost linear dependency between variance expalined and number of components suggest that PCA is not an effective method for dimension reduction in the context of our problem.
 
 | <img src="img/pca.png" width="1000">|
 |:--:|
-| ***Figure 8: Variance Explained vs. Number of PCA Components*** |
+| ***Figure 9: Variance Explained vs. Number of PCA Components*** |
 
 
 
 ## Summary Findings
 
-- **Dimension Reduction with PCA**: We did not pursue this avenue because it is ineffective as shown in Figure 8 and discussed above.
+- **Dimension Reduction with PCA**: We did not pursue this avenue because it is ineffective as shown in Figure 9 and discussed above.
 - **Feature Collection 1 vs. Feature Collection 2**: Both the monthly segmentation results and the computation times are very similar between these two feature collections. ***We chose Feature Set 1 for this project***. However, we suspect that Feature Set 2 may have some benefits and may even produce more interpretable clusters with a larger training data set (due to reduced data dimensionality). It would be easy to make such adjustment as the feature extraction function extracts all feature sets.
