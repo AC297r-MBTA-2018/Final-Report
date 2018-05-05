@@ -17,4 +17,4 @@ title: Cluster Inference
 
 ## Cluster Demographics Distribution
 
-## Summary
+## Summary Findings

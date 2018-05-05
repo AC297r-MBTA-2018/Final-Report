@@ -22,7 +22,7 @@ For the general clustering procedure (Figure 1), we applied a hierarchical versi
 
 In the **hierarchical** pipeline, we first used K-means to cluster based on “higher-level” usage patterns, i.e. the total number of trips taken over weekends versus during weekdays and ticket purchasing patterns; the resulting clusters are then clustered again using either algorithm based on more specific features i.e. usage in individual hours during the week and usage in each zip code. In the **non-hierarchical** pipeline, the riders are directly clustered based on the 168-hour temporal, geographical and ticket purchasing patterns.
 
-## Summary
+## Summary Findings
 
 Comparing LDA versus K-means, we found that using LDA is more time-efficient and produces clusters with better size stability and more interesting subtle differences than K-means. K-means tends to pick up small rider segments that have very distinct usage patterns. We suspect this to be caused by the linear boundary of K-means that partitions the outlier rider group into an individual cluster.
 
