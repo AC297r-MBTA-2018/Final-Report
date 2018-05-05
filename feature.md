@@ -121,7 +121,6 @@ We experimented with PCA transformation as an additional dimension reduction app
 ## Summary Findings
 
 - **Dimension Reduction with PCA**: We did not pursue this avenue because it is ineffective as shown in Figure 8 and discussed above. 
-
 - **Feature Collection 1 vs. Feature Collection 2**: Both the monthly segmentation results and the computation times are very similar between these two feature collections. ***We chose Feature Set 1 for this project***. However, we suspect that Feature Set 2 may have some benefits and may even produce more interpretable clusters with a larger training data set (due to reduced data dimensionality). It would be easy to make such adjustment as the feature extraction function extracts all feature sets.
 
 
