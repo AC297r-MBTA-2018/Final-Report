@@ -130,6 +130,17 @@ Figure 5 shows the comparison of cluster temporal patterns found using different
 | ***Figure 8: Inferred Cluster Demographics Comparison.** Inferred demographics distributions of clusters found using -  A. The hierarchical pipeline and the LDA algorithm; B. The non-hierarchical pipeline and the LDA algorithm; C. The hierarchical pipeline and the K-means algorithm; D. The non-hierarchical pipeline and the K-means algorithm.* |
 
 ### Sample Report
+Sample of automatically generated reports for clusters found using the **Hierarchical** pipeline and the **LDA** algorithm:
+
+- For Cluster 1
+
+    > The predicted type of rider for cluster 101 is weekend riders. There are 58597 riders in the cluster, taking on average 9.89 trips. These riders take most trips during 23:00-24:00 and 22:00-23:00 on weekdays, and during 12:00-13:00 on weekends. The most frequent trip origin is in zipcode 02115.
+
+- For Cluster 4
+
+    > The predicted type of rider for cluster 200 is less flexible commuters with normal commute hours. There are 123792 riders in the cluster, taking on average 42.78 trips. These riders take most trips during 8:00-9:00 and 17:00-18:00 on weekdays, and during 0:00-1:00 on weekends. The most frequent trip origin is in zipcode 02110.
+
+Sample of automatically generated reports for clusters found using the **Hierarchical** pipeline and the **K-means** algorithm:
 
 ## Conclusions
 
