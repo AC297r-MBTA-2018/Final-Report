@@ -86,11 +86,13 @@ Grouping transaction records by riderID, we counted the number of different serv
 Two combinations of features sets were made for comparison.
 
 - Feature collection 1: Feature sets 1a, 2, 3, 4, and 5
+
     | <img src="img/feature168_details.png" width="1000">|
     |:--:|
     | ***Figure 5: Feature Details for Feature Collection 1*** |
 
 - Feature collection 2: Feature sets 1b, 2, 3, 4, and 5
+
     | <img src="img/feature48_details.png" width="1000">|
     |:--:|
     | ***Figure 5: Feature Details for Feature Collection 1*** |
