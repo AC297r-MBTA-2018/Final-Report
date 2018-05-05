@@ -8,22 +8,43 @@ title: Rider Segmentation
 *  
 {: toc}
 
-## Segmentation Algorithms
-We use 2 unsupervised clustering algorithms,  [Latent Dirichlet Allocation (LDA)](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) and [K-means](https://en.wikipedia.org/wiki/K-means_clustering). Referring to scikit-learn's documentation,
-[LDA](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html) learns a mixture distribution of K topics (K is set as a priori) from a set of documents, where a document in our case represent an individual rider and a topic represents a rider-type (e.g., more/less flexible commuter, weekend rider, random rider and etc.). With LDA, each rider is modeled as a distribution of probabilities for being in each rider-type. [K-means](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html), by contrast, does not model a rider as a full distribution of rider-types, instead it directly partitions all the riders into K types.
+## Segmentation Pipeline
 
-## Clustering Pipeline
+Our overall segmentation pipeline is summarized in Figure 1.
 
 | <img src="img/segmentation_model.png" width="1000">|
 |:--:|
-| ***Figure 1: Segmentation Modeling Pipeline*** |
+| ***Figure 1: Segmentation Pipeline***|
 
-For the general clustering procedure (Figure 1), we applied a hierarchical version and a non-hierarchical version.
+Based on feedback from the client, we first filtered out riders with a commuter rail pass (except for Zone 1a) and riders who ride fewer than 5 trips per month. The rationale is that there is not enough information for performing inference on these riders based on the current fare transaction data collection system. 
 
-In the **hierarchical** pipeline, we first used K-means to cluster based on “higher-level” usage patterns, i.e. the total number of trips taken over weekends versus during weekdays and ticket purchasing patterns; the resulting clusters are then clustered again using either algorithm based on more specific features i.e. usage in individual hours during the week and usage in each zip code. In the **non-hierarchical** pipeline, the riders are directly clustered based on the 168-hour temporal, geographical and ticket purchasing patterns.
+Recall that our feature sets are:
+
+- 168 Hourly Temporal Patterns: The number of trips each rider took in each hour (0:00 to 23:00) of each day of week (Mon to Sun), a 168-dimensional vector.
+- Weekend-vs-Weekday: the total number of trips each rider took on weekday and on weekends.
+- Most Frequent Trip Hours: The top 2 hours in which each rider takes most trips during weekdays, and the top 1 hour over weekends. 
+- Time Flexibility Scores: The maxes of the weekday and weekend ridership distributions.
+- Geographical Patterns by Zip Codes: The number of trips each rider took in each zip code.
+- Ticket Purchasing Patterns: The number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID.
+
+For feature details, refer to [Feature Extraction](https://ac297r-mbta-2018.github.io/Final-Report/feature.html).
+
+We implemented two clustering pipelines:
+- The **Non-hierarchical** pipeline is the more conventional pipeline where the user-specified algorithm is directly applied to a set of features. In this case, the set of features is 168 hourly temporal patterns, most frequent trip hours, time flexibility scores, geographical patterns by zip codes and ticket purchasing patterns.
+- The **Hierarchical** pipeline is a custom pipeline where we first used K-means to cluster based on “higher-level” usage patterns, which we defined as the set of weekend-vs-weekday and ticket purchasing patterns (The initial clsutering step). The resulting clusters are then clustered again using user-specified algorithm based on more specific features, which we defined as the set of 168 hourly temporal patterns, most frequent trip hours, time flexibility scores and geographical patterns by zip codes (The final clustering step).
+
+Note: At each clustering step (initial and final), an optimal number of cluster is found using the Calinski and Harabaz score, which is defined as the ratio between the within-cluster dispersion and the between-cluster dispersion. For more information on this scoring criterion, please consult the [Sklearn documentation on Calinski Harabaz Score](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.calinski_harabaz_score.html).
+
+
+## User-Specified Algorithm Options
+
+We implemented two unsupervised clustering algorithms for the user to choose and compare:
+
+- Latent Dirichlet Allocation (LDA) - Briefly, LDA learns a mixture distribution of K topics (K is set as a priori) from a set of documents, where a document in our case represent an individual rider and a topic represents a rider-type (e.g., more/less flexible commuter, weekend rider, random rider and etc.). With LDA, each rider is modeled as a distribution of probabilities for being in each rider-type. For more information, refer to [Sklearn documentation on LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation).
+- K-means - Briefly, K-means clusters data by trying to separate samples in n groups of equal variance, minimizing a criterion known as the inertia or within-cluster sum-of-squares. For more information, refer to [Sklearn documentaiton on K-means](https://en.wikipedia.org/wiki/K-means_clustering).
+
 
 ## Summary Findings
 
-Comparing LDA versus K-means, we found that using LDA is more time-efficient and produces clusters with better size stability and more interesting subtle differences than K-means. K-means tends to pick up small rider segments that have very distinct usage patterns. We suspect this to be caused by the linear boundary of K-means that partitions the outlier rider group into an individual cluster.
-
-Comparing the hierarchical versus the non-hierarchical pipeline, we were able to obtain more segments with more subtle differences across different segments from the hierarchical structure.
+- **Hierarchical vs. Non-Hierarchical Pipline**: The hierarchical pipeline appears to have 2 advantages over the non-hierarchical pipeline - 1) More time efficient; and 2) Able to find clusters with more subtle differences
+- **LDA vs. K-means**: LDA produces clusters with better size stability and more interesting subtle differences than K-means. K-means tends to pick up very small rider segments that have very distinct usage patterns.
