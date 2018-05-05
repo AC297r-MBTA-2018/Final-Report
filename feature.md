@@ -56,29 +56,37 @@ The feature sets we extracted are summarized in Figure 3. We defined 3 general c
 
 ### Temporal Patterns
 #### Feature Set 1a: 168 Hourly version
-Grouping transaction records by riderID, we counted the number of trips of each rider in each hour of each day of in a week-long time frame, which results in a 7 (day) by 24 (hr/day) temporal matrix. The 2D matrix is flattened to a set of 168 numeric features. We expect the temporal patterns to most intuitively represent each rider's pattern-of-use.
+For each rider, we counted the number of trips he/she took in each hour (0:00 to 23:00) of each day of week (Mon to Sun) for the user-specified length of duration and starting month. For instance, suppose the desired duration is 1 month and starting month is October 2017; then, for the hour at Monday 9AM, we counted the number of trips each rider took during 9AM on all of the Mondays in October 2017. Therefore, in this case, the temporal pattern of each rider is represented by a 7 (day) by 24 (hour/day) matrix that is then flattened to a 168-dimensional vector, within which each element is a numeric feature. This is the same temporal representation found in *Mahrsi et al. (2014). Understanding Passenger Patterns in Public Transit Through Smart Card and Socioeconomic Data. UrbComp.* This way of representing temporal usage patterns appears most intuitive to us.
 
 #### Feature Set 1b: 48 (Weekday Hourly vs. Weekend Hourly) version
 
-In hope of reducing dimensions without losing too much information, we divided the 7 by 24 hour matrix into weekday versus weekend and each then can be reduced to a 1 by 24 vector by taking average by day, producing a set of 48 numeric features（See Figure 4). Doing so, we got rid of a total of 120 features. The segmentation results based on this reduced feature set gave similar results compared to the original 168-length feature set.
+Machine learning algorithms suffer from "the curse of dimensionality" in general, and unsupervised learning algorithms are not an exception. For more information on this topic, see [The Challenges of Clustering High Dimensional Data](https://www-users.cs.umn.edu/~kumar001/papers/high_dim_clustering_19.pdf). Therefore, we attempted to reduce the dimensionality of the 168 hourly pattern with the goal of retaining interpretable temporal features. We divided the 7 by 24 hour matrix into weekday versus weekend and each then can be reduced to a 1 by 24 vector by taking daily sums, producing a set of 48 numeric features（See Figure 4). Doing so, we got rid of a total of 120 features.
 
 | <img src="img/feature_collapse.png" width="1000">|
 |:--:|
-| ***Figure 4: Feature Collapsing*** |
+| ***Figure 4: Strategy to Reduce the Dimensionality of the 168 Hourly Usage Patterns (Feature Set 1a)*** |
 
-Note: We didn't use the 48-length feature set for this project as we obtained similar results without significantly reducing computation time. But since the reduced feature set is more compact than the original one, we suspect that it might produce more interpretable clusters with a larger training dataset.
 
-#### Feature Set 2: Time Flexibility Score
+#### Feature Set 2: Weekday vs. Weekend Total Counts
 
-#### Feature Set 3: Weekday vs. Weekend Total Counts
+Another approach to reduce the dimensionality of temporal usage pattern was to count the total number of trips each rider took on weekday and on weekends. This effectively is the row sums of Weekday Hourly vs. Weekend Hourly features (Feature Set 1b).
+
+#### Feature Set 3: Time Flexibility Score
+
+One of the key interpretations we would like to make is whether a rider is flexible in their trip schedule. To represent time flexibility, we first normalized the weekday hourly and weekend hourly patterns independently. The normalized vectors can be interpreted as probability distributions of hourly usage on either weekday or weekend. A less time flexible rider would then have a distribution with a higher max than a more time flexible rider as depicted in Figure 5. Therefore, we used the maxes of the weekday and weekend distributions to represent rider time flexibility. Again, a more flexible rider would have a lower score. 
+
+| <img src="img/flexibility_schematics.png" width="1000">|
+|:--:|
+| ***Figure 5: Schematics Comparing Less to More Flexixble Rider Temporal Distribution*** A. A less flexible rider would have higher and more concentrated peaks. B. A more flexible rider would have lower and more spread out peaks.|
+
 
 ### Geographical patterns
 
-Grouping transaction records by riderID, we counted the number of trips of each rider taking a trip at each zip code. This gives a total of around 100 numeric features that can represent each rider's geographical pattern-of-use. The zip code of each rider's most frequent trip origin could be approximately inferred as the rider's home location.
+To represent rider geographical usage patterns, we counted the number of trips rider took in each zip code. We chose to summarize geographical usage pattern at the zip code level for 2 reasons: 1) Counting at the stop level would produce too many features (approximately 8000); and 2) The census data is provided at the zip code level, so counting at the zip code level would facilitate demographics inference. This gives a total of around 100 numeric features.
 
 ### Ticket Purchasing Pattern
 
-Grouping transaction records by riderID, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with the riderID. This gives a total of 25 numeric features that can represent each rider's ticket-purchasing habits.
+To represent rider ticket-purchasing habits, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID. This give a total of 25 numeric features.
 
 
 ### Feature Collections 
@@ -89,18 +97,14 @@ Two combinations of features sets were made for comparison.
 
     | <img src="img/feature168_details.png" width="1000">|
     |:--:|
-    | ***Figure 5: Feature Details for Feature Collection 1*** |
+    | ***Figure 6: Feature Details for Feature Collection 1*** |
 
 - Feature collection 2: Feature sets 1b, 2, 3, 4, and 5
 
     | <img src="img/feature48_details.png" width="1000">|
     |:--:|
-    | ***Figure 5: Feature Details for Feature Collection 1*** |
+    | ***Figure 7: Feature Details for Feature Collection 2*** |
 
 
 
-
-
-
-
-
+Note: Both the monthly segmentation results and the computation times are very similar between these two feature collections. We chose Feature Set 1 for this project. However, we suspect that Feature Set 2 may have some benefits and may even produce more interpretable clusters with a larger training data set (due to reduced data dimensionality).
