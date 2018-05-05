@@ -1,6 +1,6 @@
 ---
 nav_include: 2
-title: Rider Cluster Inference
+title: Rider Segmentation
 ---
 
 ## Contents
@@ -14,7 +14,7 @@ We use 2 unsupervised clustering algorithms,  [Latent Dirichlet Allocation (LDA)
 
   - **[K-means:](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)**, by contrast, does not model a rider as a full distribution of rider-types, instead it directly partitions all the riders into K types.
 
-  - **LDA vs. K-means:** We found that using LDA with the hierarchical pipeline is more time-efficient and produces clusters with better size stability and more interesting subtle differences than K-means. K-means tends to pick up small rider segments that have very distinct usage patterns. We suspect this to be caused by the linear boundary of K-means that partitions the outlier rider group into an individual cluster. 
+  - **LDA vs. K-means:** We found that using LDA with the hierarchical pipeline is more time-efficient and produces clusters with better size stability and more interesting subtle differences than K-means. K-means tends to pick up small rider segments that have very distinct usage patterns. We suspect this to be caused by the linear boundary of K-means that partitions the outlier rider group into an individual cluster.
 
 ## Clustering Pipeline
 
