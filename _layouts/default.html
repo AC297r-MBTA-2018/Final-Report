@@ -45,48 +45,40 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Final-Report/">Report</a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Code-Documentation/">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/about.html">About</a>
-                    </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Code-Documentation/">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ac297r-mbta-2018.github.io/Dashboard/about.html">About</a>
+                </li>
             </ul>
         </div>
     </nav>
-<div class="markdown-body">
-    <div class="second-nav">
-        <nav class="group page-nav">
-            {% if site.title and site.title != page.title %}
-                <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
-            {% endif %}
-            {% assign navigation_pages = site.html_pages | sort: 'nav_include' %}
-            {% for node in navigation_pages %}
-                {% if node.nav_include %}
-                    {% if page.url == node.url %}
-                        &nbsp;&nbsp; <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:white">{{node.title}}</a>
-                    {% else %}
-                        &nbsp;&nbsp;<a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        </nav>
-    </div>
-
-    <div class="markdown-content">
-        <h1>{{page.title}}</h1> {{ content }} {% if site.github.private != true and site.github.license %}
-        <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-            This site is open source. {% github_edit_link "Improve this page" %}.
+    <div class="markdown-body">
+        <div class="second-nav">
+            <nav class="group page-nav">
+                {% if site.title and site.title != page.title %}
+                <a href="{{ " / " | absolute_url }}">{{ site.title }}</a> {% endif %} {% assign navigation_pages = site.html_pages | sort: 'nav_include' %} {% for node in navigation_pages %} {% if node.nav_include %} {% if page.url == node.url %} &nbsp;&nbsp;
+                <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:white">{{node.title}}</a> {% else %} &nbsp;&nbsp;
+                <a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a> {% endif %} {% endif %} {% endfor %}
+            </nav>
         </div>
-        {% endif %}
-    </div>
-    <script src="./custom_assets/jslib/bootstrap.min.js"></script>
-    <script src="./custom_assets/jslib/underscore-min.js"></script>
-    <script src="./custom_assets/jslib/keen.min.js"></script>
-    <script src="./custom_assets/jslib/anchor.min.js"></script>
-    <script>
-        anchors.add();
-    </script>
+
+        <div class="markdown-content">
+            <h1>{{page.title}}</h1> {{ content }} {% if site.github.private != true and site.github.license %}
+            <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+                This site is open source. {% github_edit_link "Improve this page" %}.
+            </div>
+            {% endif %}
+        </div>
+        <script src="./custom_assets/jslib/bootstrap.min.js"></script>
+        <script src="./custom_assets/jslib/underscore-min.js"></script>
+        <script src="./custom_assets/jslib/keen.min.js"></script>
+        <script src="./custom_assets/jslib/anchor.min.js"></script>
+        <script>
+            anchors.add();
+        </script>
 
 </body>
 
