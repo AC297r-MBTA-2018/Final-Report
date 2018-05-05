@@ -8,6 +8,7 @@ title: Cluster Inference
 *
 {: toc}
 
+## Inference Overall Workflow
 | <img src="img/cluster_inference.png" width="1000">|
 |:--:|
 | ***Figure 1: Rider Cluster Inference*** |
