@@ -79,26 +79,28 @@ One of the key interpretations we would like to make is whether a rider is flexi
 |:--:|
 | ***Figure 5: Schematics Comparing Less to More Flexible Rider Temporal Distribution*** A. A less flexible rider would have higher and more concentrated peaks. B. A more flexible rider would have lower and more spread out peaks.|
 
+#### Feature Set 4: Most Frequent Trip Hours
+
 
 ### Geographical Patterns
 
-To represent rider geographical usage patterns, we counted the number of trips rider took in each zip code. We chose to summarize geographical usage pattern at the zip code level for 2 reasons: 1) Counting at the stop level would produce too many features (approximately 8000); and 2) The census data is provided at the zip code level, so counting at the zip code level would facilitate demographics inference. This gives a total of around 100 numeric features (Feature set 4).
+To represent rider geographical usage patterns, we counted the number of trips rider took in each zip code. We chose to summarize geographical usage pattern at the zip code level for 2 reasons: 1) Counting at the stop level would produce too many features (approximately 8000); and 2) The census data is provided at the zip code level, so counting at the zip code level would facilitate demographics inference. This gives a total of around 100 numeric features (Feature set 5).
 
 ### Ticket Purchasing Pattern
 
-To represent rider ticket-purchasing habits, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID. This give a total of 25 numeric features (Feature set 5).
+To represent rider ticket-purchasing habits, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID. This give a total of 25 numeric features (Feature set 6).
 
 ## Feature Collections
 
 Two combinations of features sets were made for comparison.
 
-- **Feature collection 1:** Feature sets 1a (168 Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Geographical Patterns by Zip Code), and 5 (Ticket Purchasing Pattern). *This collection has a total of 307 features*.
+- **Feature collection 1:** Feature sets 1a (168 Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Most Frequent Trip Hours), 5 (Geographical Patterns by Zip Code), and 6 (Ticket Purchasing Pattern). *This collection has a total of 310 features*.
 
     | <img src="img/feature168_details.png" width="1000">|
     |:--:|
     | ***Figure 6: Feature Details for Feature Collection 1*** |
 
-- **Feature collection 2**: Feature sets 1b (Weekday Hourly vs. Weekend Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Geographical Patterns by Zip Code), and 5 (Ticket Purchasing Pattern). *This collection has a total of 307 features*.
+- **Feature collection 2**: Feature sets 1b (Weekday Hourly vs. Weekend Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Most Frequent Trip Hours), 5 (Geographical Patterns by Zip Code), and 6 (Ticket Purchasing Pattern). *This collection has a total of 190 features*.
 
     | <img src="img/feature48_details.png" width="1000">|
     |:--:|
