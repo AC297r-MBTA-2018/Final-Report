@@ -5,10 +5,11 @@ title: Cluster Inference
 
 ## Contents
 {:.no_toc}
-*
+*  
 {: toc}
 
 ## Inference Overall Workflow
+
 | <img src="img/cluster_inference.png" width="1000">|
 |:--:|
 | ***Figure 1: Rider Cluster Inference*** |
