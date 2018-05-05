@@ -88,23 +88,40 @@ To represent rider geographical usage patterns, we counted the number of trips r
 
 To represent rider ticket-purchasing habits, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID. This give a total of 25 numeric features (Feature set 5).
 
-
-### Feature Collections 
+## Feature Collections 
 
 Two combinations of features sets were made for comparison.
 
-- Feature collection 1: Feature sets 1a (168 Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Geographical Patterns by Zip Code), and 5 (Ticket Purchasing Pattern)
+- **Feature collection 1:** Feature sets 1a (168 Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Geographical Patterns by Zip Code), and 5 (Ticket Purchasing Pattern). *This collection has a total of 307 features*. 
 
     | <img src="img/feature168_details.png" width="1000">|
     |:--:|
     | ***Figure 6: Feature Details for Feature Collection 1*** |
 
-- Feature collection 2: Feature sets 1b (Weekday Hourly vs. Weekend Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Geographical Patterns by Zip Code), and 5 (Ticket Purchasing Pattern)
+- **Feature collection 2**: Feature sets 1b (Weekday Hourly vs. Weekend Hourly), 2 (Weekday vs. Weekend Total Counts), 3 (Time Flexibility Score), 4 (Geographical Patterns by Zip Code), and 5 (Ticket Purchasing Pattern). *This collection has a total of 307 features*. 
 
     | <img src="img/feature48_details.png" width="1000">|
     |:--:|
     | ***Figure 7: Feature Details for Feature Collection 2*** |
 
 
+## Additional Dimension Reduction Approaches
+### Principal Componenet Analysis (PCA)
 
-Note: Both the monthly segmentation results and the computation times are very similar between these two feature collections. We chose Feature Set 1 for this project. However, we suspect that Feature Set 2 may have some benefits and may even produce more interpretable clusters with a larger training data set (due to reduced data dimensionality).
+Principal component analysis (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components ([Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis)). More information can also be found in [Sklearn documentation](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html).
+
+We experimented with PCA transformation as an additional dimension reduction approach. However, as Figure 8 below shows, the almost linear dependency between variance expalined and number of components suggest that PCA is not an effective method for dimension reduction in the context of our problem. 
+
+| <img src="img/pca.png" width="1000">|
+|:--:|
+| ***Figure 8: Variance Explained vs. Number of PCA Components*** |
+
+
+
+## Summary Findings
+
+- **Dimension Reduction with PCA**: We did not pursue this avenue because it is ineffective as shown in Figure 8 and discussed above. 
+
+- **Feature Collection 1 vs. Feature Collection 2**: Both the monthly segmentation results and the computation times are very similar between these two feature collections. ***We chose Feature Set 1 for this project***. However, we suspect that Feature Set 2 may have some benefits and may even produce more interpretable clusters with a larger training data set (due to reduced data dimensionality). It would be easy to make such adjustment as the feature extraction function extracts all feature sets.
+
+
