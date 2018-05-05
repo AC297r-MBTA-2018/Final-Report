@@ -20,12 +20,12 @@ Based on feedback from the client, we first filtered out riders with a commuter 
 
 Recall that our feature sets are:
 
-- 168 Hourly Temporal Patterns: The number of trips each rider took in each hour (0:00 to 23:00) of each day of week (Mon to Sun), a 168-dimensional vector.
-- Weekend-vs-Weekday: the total number of trips each rider took on weekday and on weekends.
-- Most Frequent Trip Hours: The top 2 hours in which each rider takes most trips during weekdays, and the top 1 hour over weekends. 
-- Time Flexibility Scores: The maxes of the weekday and weekend ridership distributions.
-- Geographical Patterns by Zip Codes: The number of trips each rider took in each zip code.
-- Ticket Purchasing Patterns: The number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID.
+- **168 Hourly Temporal Patterns**: The number of trips each rider took in each hour (0:00 to 23:00) of each day of week (Mon to Sun), a 168-dimensional vector.
+- **Weekend-vs-Weekday**: the total number of trips each rider took on weekday and on weekends.
+- **Most Frequent Trip Hours**: The top 2 hours in which each rider takes most trips during weekdays, and the top 1 hour over weekends. 
+- **Time Flexibility Scores**: The maxes of the weekday and weekend ridership distributions.
+- **Geographical Patterns by Zip Codes**: The number of trips each rider took in each zip code.
+- **Ticket Purchasing Patterns**: The number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID.
 
 For feature details, refer to [Feature Extraction](https://ac297r-mbta-2018.github.io/Final-Report/feature.html).
 
