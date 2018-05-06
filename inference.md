@@ -8,25 +8,21 @@ title: Cluster Inference
 *  
 {: toc}
 
-## Inference Overall Workflow
+## Cluster Inference Workflow
 
 | <img src="img/cluster_inference.png" width="1000">|
 |:--:|
 | ***Figure 1: Rider Cluster Inference*** |
 
-## Cluster Pattern-of-use
-To get cluster pattern-of-use summary, we summed the rider features grouped by cluster assignments, which gives one aggregated cluster usage pattern (temporal, geographical and ticket-purchasing) summary for each cluster. The aggregated cluster usage patterns show the total traffic distribution over time, starting at geographical locations (represented as different zip codes) and associated with different types of tickets.
+## Cluster Pattern-of-Use Feature Summary
+The input of the cluster inference module is the end result of the segmentation procedure, which is a large data frame where each row is a rider and the columns are rider pattern-of-use features plus a cluster assignment. To summarize cluster pattern-of-use, we took the within cluster sum of individual feature. In the end, we have a data frame where each row is a cluster and the columns are the summarized cluster-level pattern-of-use features. 
 
 ## Cluster Demographics Distribution
-To further understand the rider clusters, we incorporated US census data to infer differences in demographics distributions. We converted geographical trip count features associated with each zip code into proportion and took a softmax transformation. This transformed softmax proportion recovers a squashed categorical distribution of trips by zip code, which is then used to map the zip code index of the US census data to ultimately produce the expected demographics distribution across clusters.
+To infer cluster-level demographics distribution, we first converted the geographical trip count features associated with each zip code into proportions and took a softmax transformation. In this way, the cluster-level geographical usage features are converted into a probability distribtion over zip codes for each cluster. With this probability distribution, we then incorporated the US census data (by zip codes) to obtain an expected demographics distribution for each cluster. 
 
-## Automatically Generated Cluster Summary
+## Automatically Generated Cluster Summary (Generative Report)
 
-| <img src="img/gen_report.png" width="1000">|
-|:--:|
-| ***Figure 2: Generative Report*** |
-
-To facilitate business insight development, we also developed an auto report generator based on convolutional neural network (CNN) that summarizes each cluster's pattern-of-use in the form of a short text paragraph. The CNN model is trained to identify the following 7 types of riders manually labelled by observing the 7 by 24 time matrix of each cluster. We oversampled each training data point for 500 times by adding a Gaussian noise (mean = 0, std = 0.2) signal to the original time matrix for better generalization performance.
+To facilitate business insight development, we also developed an auto report generator based on convolutional neural network (CNN) that summarizes each cluster's pattern-of-use in the form of a short text paragraph. To train the CNN model, we first manually labeled clusters as one of the 7 pre-defined rider types (see below) based on the cluster's 7 by 24 temporal matrix. This serves as the basis for our training samples.
 
 - **7 Pre-defined Rider-Types**
 > - random riders
@@ -37,7 +33,9 @@ To facilitate business insight development, we also developed an auto report gen
 > - more flexible commuters with early commute hours
 > - weekend riders who also ride over weekdays
 
-The automatically generated summary text includes the predicted rider-type based on the output of the fitted CNN model and reports the cluster size, average number of trips, the weekday / weekend hours and the zip code that show most traffic.
+ We then oversampled each labeled training data 500 times by adding a Gaussian noise (mean = 0, std = 0.2) to the original time matrix for better generalization performance. The CNN model was trained on this expanded labeled training data.
+
+Finally, the automatically generated summary text uses string formatting to report the predicted rider-type, which is the prediction from the trained CNN model, and a few cluster statistics including the cluster size, the average number of trips, and the weekday / weekend hours as well as the zip code that show the most traffic.
 
 ## Summary Findings
-We were able to verify that the found clusters indeed differ in their usage patterns as well as their inferred demographics distributions.
+We were able to verify that the found clusters indeed differ in their usage patterns as well as their inferred demographics distributions. Furthermore, the auto report generator appears to work well based on the text it generates and that the validation accuracy of the CNN model approached as high as 0.99. 
