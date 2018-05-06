@@ -92,6 +92,14 @@ Our overall modeling approach is summarized in Figure 3.
 |:--:|
 | ***Figure 3: Modeling Approach Overview.** The approach is presented in the context of the overall structure of our project deliverables. Elements belonging to the Python segmentation pacakge and visualization exploration tool are colored in dark blue and light blue-green, respectively.* |
 
+## Feature Sets
+- **168 Hourly Temporal Patterns**: The number of trips each rider took in each hour (0:00 to 23:00) of each day of week (Mon to Sun), a 168-dimensional vector.
+- **Weekend-vs-Weekday**: the total number of trips each rider took on weekday and on weekends.
+- **Most Frequent Trip Hours**: The top 2 hours in which each rider takes most trips during weekdays, and the top 1 hour over weekends. 
+- **Time Flexibility Scores**: The maxes of the weekday and weekend ridership distributions.
+- **Geographical Patterns by Zip Codes**: The number of trips each rider took in each zip code.
+- **Ticket Purchasing Patterns**: The number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID.
+
 ## Sample Results
 
 Since there are too many combinations of month/pipeline/algorithm, we only present the results for Oct
@@ -152,4 +160,29 @@ Sample of automatically generated reports for clusters found using the **Non-Hie
 
 ## Conclusions
 
-## Future Work
+### What We Deliver
+- We have developed a **reusable** and **expandable** pipeline to extract rider pattern-of-use features, to cluster riders accordingly, to infer cluster pattern-of-use/demographics characteristics and to analyze the found clusters either using the Python package or the interactive web-based D3 dashboard that is powered by a Flask backend.
+
+- Our package is flexible:
+    - In feature extraction, the user can specify extraction starting month and length of duration.
+    - In segmentation, the user can specify clustering pipeline, algorithm and feature weights.
+    - In cluster inference, the auto report generator is retrainable with the option to re-define rider groups of interest (e.g. weekend/random riders, commuters,...etc.).
+
+
+### Key Findings
+
+- **Dimension Reduction with PCA**: We found an almost linear dependency between variance expalined and number of components. This suggests that PCA is not an effective method for dimension reduction in the context of our problem. Therefore, we did not pursue this approach further.
+
+- **Clustering Pipeline Comparison**: The hierarchical clustering implementation has at least 2 advantages over non-hierarchical clustering: 1) more time efficient; and 2) able to find clusters with more subtle differences.
+
+- **Clustering Algorithm Comparison**: LDA produces clusters with better size stability and more interesting subtle differences than K-means. K-means tends to pick up very small rider segments that have very distinct usage patterns.
+
+Note: Due to the limited of memory on laptops, we were only able to analyze monthly riderships. With more powerful machines, rider segmentation over a longer time period (e.g. seasonal or yearly) could be possible, thus allowing ridership stability analyses.
+
+### Future Work
+
+- Incorporate More Data: We envision that the existing corporate/school affiliations data and the MBTA survey data could be incorporated to augment features for rider segmentation and cluster inference, respectively. In addition, with the future fare transaction collection system, new types of data such as actual trip destinations and even inidividual rider demographics information may become available. We envision that these data would further enhance the current feature set for segmentation and improve cluster inference reliability. 
+    
+- Better Cluster Inference: Our current approach for cluster inference is on a cluster basis where we simply weight the census data by the overall cluster geographical pattern-of-use. A more sophisticated approach is the one proposed in Mahrsi et al. (2014). The authors first used the census data to assign neighborhoods to socioeconomic clsuters using Hidden Random Markov Field. Then based on inferred rider home location, each rider is assigned to a certain socioeconomic group. In addition, the riders are clustered based on their temporal usage patterns (the 168 hourly trip counts). Therefore, each rider has both a socioeconomic group assignment and a temporal cluster assigment. Finally, the socioeconomic breakdown is analyzed for the riders in each temporal cluster as inference. Ultimately, if the new data collection system could provide actual rider demographics information, the cluster inference would be much more reliable and accurate. 
+    
+- Further Research Implications: The existing package and dashboard could be augmented to support the development of a price elasticity model. An example would be to use cluster assignment as an interaction term in a regression analysis to model different slopes for different clusters. This would allow policy makers to study the potential ridership effects on changes to service planning and fare structure. 
