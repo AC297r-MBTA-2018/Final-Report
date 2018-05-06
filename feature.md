@@ -94,7 +94,7 @@ To represent rider geographical usage patterns, we counted the number of trips r
 
 ### Ticket Purchasing Pattern
 
-To represent rider ticket-purchasing habits, we counted the number of different service-brands, tariff (e.g., 7-day pass, monthly pass, Pay-as-you-go) and user-type associated with each rider ID. This give a total of 25 numeric features (Feature set 6).
+To represent rider ticket-purchasing habits, we counted the number of trips associated with different ticket types (in the context of user type, tariff type and service brand) for each rider. This give a total of 25 numeric features (Feature set 6).
 
 ## Feature Collections
 
