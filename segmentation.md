@@ -54,12 +54,11 @@ Since policy makers might wish to develop policies targeting a certain aspect of
 
 With the **non-hierarchical** pipeline:
 
-
-| Feature Set | Weight |
-|:--:|:--:|
-| 168 Hourly Temporal Patterns + Most Frequent Trip Hours + Time Flexibility Scores| w |
-|Geographical Patterns by Zip Codes| 0.5(100 - w)|
-|Ticket Purchasing Patterns|0.5(100 - w)|
+|Step | Feature Set | Weight |
+|:--:|:--:|:--:|
+|Final Clustering| 168 Hourly Temporal Patterns + Most Frequent Trip Hours + Time Flexibility Scores| w |
+||Geographical Patterns by Zip Codes| 0.5(100 - w)|
+||Ticket Purchasing Patterns|0.5(100 - w)|
 
 
 With the **hierarchical** pipeline:
