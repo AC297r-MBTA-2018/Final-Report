@@ -45,11 +45,11 @@ Note: In addition to the code base, we are delivering pre-ran monthly clustering
 Source code can be found on our Github organization (https://github.com/AC297r-MBTA-2018). It contains 4 repositories:
 
 - ***Rider-Segmentation-Full-App*** - This is the code base for both the Python segmentation package and the app with full functionality (i.e. based on user input, the app is able to send clustering request to the Flask backend on a new data set or user-specified weights/duration that has not been cached. *Disclaimer: The full input source is not available on Github for security reasons, and each new clustering request takes at least several hours*.)  
-- ***Dashboard*** - This is the static version of the full app that has limited functinality (The app is only able to display pre-ran monthly clustering results for Dec 2016 to Nov 2017 with equal weighting on temporal, geographical and ticket purchasing pattern.) The app is deployed as a Github page (https://ac297r-mbta-2018.github.io/Dashboard/).
+- ***Dashboard*** - This is the static version of the full app that has limited functionality (The app is only able to display pre-ran monthly clustering results for Dec 2016 to Nov 2017 with equal weighting on temporal, geographical and ticket purchasing pattern.) The app is deployed as a Github page (https://ac297r-mbta-2018.github.io/Dashboard/).
 - ***Final-Report*** - This repository hosts the final report which is deployed as a Github page (https://ac297r-mbta-2018.github.io/Final-Report/).
 - ***Code-Documentation*** - This repository hosts the code documentation which is deployed as a Github page (https://ac297r-mbta-2018.github.io/Code-Documentation/).
 
-Note: The limtied Dashboard, Final Report and Code Documentation are linked via a navigation bar on respective Github pages.
+Note: The limited Dashboard, Final Report and Code Documentation are linked via a navigation bar on respective Github pages.
 
 ## Data Description
 
@@ -64,7 +64,7 @@ Available data sources:
 - **MBTA sales** data containing sales channel and card affiliations (We did not use this because it was not hashed the same way as other data sources, so we could not the match records.)
 
 
-The features we used and how we merged different data soruces are summarized in Figure 2.
+The features we used and how we merged different data sources are summarized in Figure 2.
 
 | <img src="img/data_structure.png" width="1000">|
 |:--:|
@@ -75,7 +75,7 @@ The features we used and how we merged different data soruces are summarized in 
 
 1. Case Study in France: (*Mahrsi et al. (2014). Understanding Passenger Patterns in Public Transit Through Smart Card and Socioeconomic Data. UrbComp.*)
 
-    In this paper, the authors presented an approach to mine passenger temporal behaviors in order to extract interpretable rider clusters. Briefly, each rider is represented as a vector of 168 features, where each feature is the number of trips the passenger took in a certain hour of a cerain day of week (24 hours/day x 7 days a week = 168 hours/week). Using a mixture of unigram model where the number of cluster K estimated by an EM algorithm, they obtained a set of 16 temporal clusters, each describing a temporal mobility pattern. Such patterns include typical home-to-work commuter pattern, different morning peak times, and different travel behaviors on weekends. To infer cluster socioeconomic characteristics, the authors used Hidden Random Markov Field and the inferred residential stations of each passenger to extract socioeconomic clusters. Based on this socioeconomic clustering of the residential neighborhoods, the authors found that the temporal clusters also differed in their inferred socioeconomic distribution.
+    In this paper, the authors presented an approach to mine passenger temporal behaviors in order to extract interpretable rider clusters. Briefly, each rider is represented as a vector of 168 features, where each feature is the number of trips the passenger took in a certain hour of a certain day of week (24 hours/day x 7 days a week = 168 hours/week). Using a mixture of unigram model where the number of cluster K estimated by an EM algorithm, they obtained a set of 16 temporal clusters, each describing a temporal mobility pattern. Such patterns include typical home-to-work commuter pattern, different morning peak times, and different travel behaviors on weekends. To infer cluster socioeconomic characteristics, the authors used Hidden Random Markov Field and the inferred residential stations of each passenger to extract socioeconomic clusters. Based on this socioeconomic clustering of the residential neighborhoods, the authors found that the temporal clusters also differed in their inferred socioeconomic distribution.
 
 2. Case Study in London: (*Langlois et al. (2015). Inferring patterns in the multi-week activity sequences of public transport users. Transportation Research Part C.*）
 
@@ -101,8 +101,7 @@ Our overall modeling approach is summarized in Figure 3.
 
 ## Sample Results
 
-Since there are too many combinations of month/pipeline/algorithm, we only present the results for Oct
-2017. Please see our dashboard (https://ac297r-mbta-2018.github.io/Dashboard/) to explore more results.
+Since there are too many combinations of month/pipeline/algorithm, we only present the results for Oct 2017. Please see our dashboard (https://ac297r-mbta-2018.github.io/Dashboard/) to explore more results.
 
 ### Comparing Cluster Statistics
 
