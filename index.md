@@ -12,7 +12,7 @@ Harvard 2018 Spring AC297r Capstone Project: Chia Chi (Michelle) Ho, Yijun Shen,
 
 ## Motivation & Problem Statement  
 
-The Massachusetts Bay Transportation Authority (MBTA) is the largest public transportation agency in New England, delivering a complex system of subway, bus, commuter rail, light rail, and ferry services to riders in the dynamic economy of the Greater Boston Area. It is estimated that MBTA provides over 1.3 million trips on an average weekday. While MBTA collects a wealth of trip transaction data on a daily basis, a persistent limitation has been the organization’s lack of knowledge around rider groups and their respective ridership habits. Understanding rider segmentation in the context of pattern-of-use has significant implications in developing new policies to improve its service planning and potentially changing its fare structure. Therefore, we aim to develop a flexible, repeatable rider segmentation model on MBTA’s “core system” (encompassing local buses and subway) that can group individuals according to pattern-of-use dimensions.
+The Massachusetts Bay Transportation Authority (MBTA) is the largest public transportation agency in New England, delivering a complex system of subway, bus, commuter rail, light rail, and ferry services to riders in the dynamic economy of the Greater Boston Area. It is estimated that MBTA provides over 1.3 million trips on an average weekday. While MBTA collects a wealth of trip transaction data on a daily basis, a persistent limitation has been the organization’s lack of knowledge around rider groups and their respective ridership habits. Understanding rider segmentation in the context of pattern-of-use has significant implications in developing new policies to improve its service planning and in potentially changing its fare structure. Therefore, we aim to develop a flexible, reusable rider segmentation model on MBTA’s “core system” (encompassing local buses and subway) that can group individuals according to pattern-of-use dimensions.
 
 
 ## Project Deliverables
@@ -89,7 +89,7 @@ Our overall modeling approach is summarized in Figure 3.
 
 | <img src="img/deliverable_structure.png" width="2000">|
 |:--:|
-| ***Figure 3: Modeling Approach Overview.** The approach is presented in the context of the overall structure of our project deliverables. Elements belonging to the Python segmentation pacakge and visualization exploration tool are colored in dark blue and light blue-green, respectively.* |
+| ***Figure 3: Modeling Approach Overview.** The approach is presented in the context of the overall structure of our project deliverables. Elements belonging to the Python segmentation package and visualization exploration tool are colored in dark blue and light blue-green, respectively.* |
 
 ## Feature Sets
 - **168 Hourly Temporal Patterns**: The number of trips each rider took in each hour (0:00 to 23:00) of each day of week (Mon to Sun), a 168-dimensional vector.
@@ -169,7 +169,7 @@ Sample of automatically generated reports for clusters found using the **Non-Hie
 
 ### Key Findings
 
-- **Dimension Reduction with PCA**: We found an almost linear dependency between variance expalined and number of components. This suggests that PCA is not an effective method for dimension reduction in the context of our problem. Therefore, we did not pursue this approach further.
+- **Dimension Reduction with PCA**: We found an almost linear dependency between variance explained and number of components. This suggests that PCA is not an effective method for dimension reduction in the context of our problem. Therefore, we did not pursue this approach further.
 
 - **Clustering Pipeline Comparison**: The hierarchical clustering implementation has at least 2 advantages over non-hierarchical clustering: 1) more time efficient; and 2) able to find clusters with more subtle differences.
 
@@ -183,6 +183,6 @@ Note: Due to the limited of memory on laptops, we were only able to analyze mont
 
 - Improved Dimension Reduction: Currently, we are using all 310 features that we extracted in our clustering models. However, performing clustering in such high dimensions may result in less distinguishable and less optimal clusters due to the additional noise that is factored into the distance measures. Therefore, down the line we hope to incorporate an auto-encoder to compress our data via multiple encoding and decoding layers before clustering our riders, which may bring to light more distinct rider patterns.
 
-- Better Cluster Inference: Our current approach for cluster inference is on a cluster basis where we simply weight the census data by the overall cluster geographical pattern-of-use. A more sophisticated approach is the one proposed in Mahrsi et al. (2014). The authors first used the census data to assign neighborhoods to socioeconomic clsuters using Hidden Random Markov Field. Then based on inferred rider home location, each rider is assigned to a certain socioeconomic group. In addition, the riders are clustered based on their temporal usage patterns (the 168 hourly trip counts). Therefore, each rider has both a socioeconomic group assignment and a temporal cluster assigment. Finally, the socioeconomic breakdown is analyzed for the riders in each temporal cluster as inference. Ultimately, if the new data collection system could provide actual rider demographics information, the cluster inference would be much more reliable and accurate.
+- Better Cluster Inference: Our current approach for cluster inference is on a cluster basis where we simply weight the census data by the overall cluster geographical pattern-of-use. A more sophisticated approach is the one proposed in Mahrsi et al. (2014). The authors first used the census data to assign neighborhoods to socioeconomic clusters using Hidden Random Markov Field. Then based on inferred rider home location, each rider is assigned to a certain socioeconomic group. In addition, the riders are clustered based on their temporal usage patterns (the 168 hourly trip counts). Therefore, each rider has both a socioeconomic group assignment and a temporal cluster assignment. Finally, the socioeconomic breakdown is analyzed for the riders in each temporal cluster as inference. Ultimately, if the new data collection system could provide actual rider demographics information, the cluster inference would be much more reliable and accurate.
 
 - Further Research Implications: The existing package and dashboard could be augmented to support the development of a price elasticity model. An example would be to use cluster assignment as an interaction term in a regression analysis to model different slopes for different clusters. This would allow policy makers to study the potential ridership effects on changes to service planning and fare structure.

@@ -46,7 +46,7 @@ Our overall data prepcressing procedure is summarized in Figure 1. Briefly, we f
 
 ## Feature Extraction
 
-After the preprocessed transaction-level data is grouped by rider ID, we extracted severl sets of rider-level pattern-of-use features, with which we made 2 feature collections (combintaions of different feature sets).
+After the preprocessed transaction-level data is grouped by rider ID, we extracted several sets of rider-level pattern-of-use features, with which we made 2 feature collections (combinations of different feature sets).
 
 The feature sets we extracted are summarized in Figure 3. We defined 3 general categories of usage patterns (i.e. temporal, geographical and ticket purchasing). Since our client had expressed most interest in understanding and clustering riders based on when they ride, we focused our efforts on dissecting the temporal patterns from several different angles.
 
@@ -80,7 +80,7 @@ One of the key interpretations we would like to make is whether a rider is flexi
 | ***Figure 5: Schematics Comparing Less to More Flexible Rider Temporal Distribution*** A. A less flexible rider would have higher and more concentrated peaks. B. A more flexible rider would have lower and more spread out peaks.|
 
 #### Feature Set 4: Most Frequent Trip Hours
-It makes intuitive sense to cluster riders who ride at similar times. Therefore, we extracted the hours during which each rider took the most trips. We chose to extract the top 2 most frequent trip hours for weekdays and the top 1 for weekends. The idea is that we would want to compare commute times during weekdays for commuters and peak time for random/weekend riders during weekends. In practice, this is simply the corresponding column index (hour) of the maxes of Weekday Hourly vs. Weekend Hourly patterns. 
+It makes intuitive sense to cluster riders who ride at similar times. Therefore, we extracted the hours during which each rider took the most trips. We chose to extract the top 2 most frequent trip hours for weekdays and the top 1 for weekends. The idea is that we would want to compare commute times during weekdays for commuters and peak time for random/weekend riders during weekends. In practice, this is simply the corresponding column index (hour) of the maxes of Weekday Hourly vs. Weekend Hourly patterns.
 
 An example of the top 2 most frequent trip hours during weekdays is shown in Figure 6.
 
@@ -118,7 +118,7 @@ Two combinations of features sets were made for comparison.
 
 Principal component analysis (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components ([Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis)). More information can also be found in [Sklearn documentation](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html).
 
-We experimented with PCA transformation as an additional dimension reduction approach. However, as Figure 9 below shows, the almost linear dependency between variance expalined and number of components suggest that PCA is not an effective method for dimension reduction in the context of our problem.
+We experimented with PCA transformation as an additional dimension reduction approach. However, as Figure 9 below shows, the almost linear dependency between variance explained and number of components suggest that PCA is not an effective method for dimension reduction in the context of our problem.
 
 | <img src="img/pca.png" width="1000">|
 |:--:|
